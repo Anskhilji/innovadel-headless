@@ -1,0 +1,31 @@
+<iscontent type="text/html" charset="UTF-8" compact="true"/>
+<isreplace/>
+<iscomment>
+    This decorator just place the decorated template in order to produce
+    correct partial pages (e.g. only the inner template) if needed.
+    This is necessary to provide a partial page only, e.g. a category landing
+    page if it was requested through an Ajax request, where an additional
+    decoration has to be omitted.
+</iscomment>
+<isscript>
+    var format = pdict.CurrentHttpParameterMap.format.stringValue;
+    if (format === 'ajax') {
+        var hookHelper = require('app_storefront_controllers/cartridge/scripts/template/hookHelper');
+        hookHelper.callHook('app.template.ajaxPartial', null, {pdict: pdict});
+    }
+</isscript>
+
+<root><?xml version="1.0" encoding="UTF-8" standalone="yes"?> <order order-no="00005935"> <order-date>2023-11-01T15:48:46.591Z</order-date> <created-by>storefront</created-by> <original-order-no>00005935</original-order-no> <currency>USD</currency> <customer-locale>en_US</customer-locale> <taxation>net</taxation> <invoice-no>00019067</invoice-no> <customer> <guest>false</guest> <customer-no>00010502</customer-no> <customer-name>Muhammad Ans</customer-name> <customer-email>ans.qasim@innovadeltech.com</customer-email> <billing-address> <first-name>Muhammad</first-name> <last-name>Ans</last-name> <address1>Monica Geller</address1> <city>New York City</city> <postal-code>10001</postal-code> <state-code>AL</state-code> <country-code>US</country-code> <phone>(080) 422-2111</phone> </billing-address> </customer> <status> <order-status>NEW</order-status> <shipping-status>NOT_SHIPPED</shipping-status> <confirmation-status>NOT_CONFIRMED</confirmation-status> <payment-status>NOT_PAID</payment-status> </status> <channel-type>Storefront</channel-type> <current-order-no>00005935</current-order-no> <product-lineitems> <product-lineitem> <net-price>74.00</net-price> <tax>3.70</tax> <gross-price>77.70</gross-price> <base-price>74.00</base-price> <lineitem-text>Double Breasted Sleeveless Button Down Blouse.</lineitem-text> <tax-basis>74.00</tax-basis> <position>1</position> <product-id>701644388157M</product-id> <product-name>Double Breasted Sleeveless Button Down Blouse.</product-name> <quantity unit="">1.0</quantity> <tax-rate>0.05</tax-rate> <shipment-id>00014611</shipment-id> <gift>false</gift> <price-adjustments> <price-adjustment> <net-price>-22.20</net-price> <tax>-1.11</tax> <gross-price>-23.31</gross-price> <base-price>-22.20</base-price> <lineitem-text>pwa-promotion</lineitem-text> <tax-basis>-22.20</tax-basis> <promotion-id>pwa-promotion</promotion-id> <campaign-id>pwaProduct</campaign-id> <discount> <percentage>30.000</percentage> </discount> </price-adjustment> </price-adjustments> </product-lineitem> </product-lineitems> <shipping-lineitems> <shipping-lineitem> <net-price>5.99</net-price> <tax>0.30</tax> <gross-price>6.29</gross-price> <base-price>5.99</base-price> <lineitem-text>Shipping</lineitem-text> <tax-basis>5.99</tax-basis> <item-id>STANDARD_SHIPPING</item-id> <shipment-id>00014611</shipment-id> <tax-rate>0.05</tax-rate> </shipping-lineitem> </shipping-lineitems> <shipments> <shipment shipment-id="00014611"> <status> <shipping-status>NOT_SHIPPED</shipping-status> </status> <shipping-method>001</shipping-method> <shipping-address> <first-name>Muhammad</first-name> <last-name>Ans</last-name> <address1>Monica Geller</address1> <city>New York City</city> <postal-code>10001</postal-code> <state-code>AL</state-code> <country-code>US</country-code> <phone>(080) 422-2111</phone> </shipping-address> <gift>false</gift> <totals> <merchandize-total> <net-price>74.00</net-price> <tax>3.70</tax> <gross-price>77.70</gross-price> </merchandize-total> <adjusted-merchandize-total> <net-price>51.80</net-price> <tax>2.59</tax> <gross-price>54.39</gross-price> </adjusted-merchandize-total> <shipping-total> <net-price>5.99</net-price> <tax>0.30</tax> <gross-price>6.29</gross-price> </shipping-total> <adjusted-shipping-total> <net-price>5.99</net-price> <tax>0.30</tax> <gross-price>6.29</gross-price> </adjusted-shipping-total> <shipment-total> <net-price>57.79</net-price> <tax>2.89</tax> <gross-price>60.68</gross-price> </shipment-total> </totals> </shipment> </shipments> <totals> <merchandize-total> <net-price>74.00</net-price> <tax>3.70</tax> <gross-price>77.70</gross-price> </merchandize-total> <adjusted-merchandize-total> <net-price>51.80</net-price> <tax>2.59</tax> <gross-price>54.39</gross-price> </adjusted-merchandize-total> <shipping-total> <net-price>5.99</net-price> <tax>0.30</tax> <gross-price>6.29</gross-price> </shipping-total> <adjusted-shipping-total> <net-price>5.99</net-price> <tax>0.30</tax> <gross-price>6.29</gross-price> </adjusted-shipping-total> <order-total> <net-price>57.79</net-price> <tax>2.89</tax> <gross-price>60.68</gross-price> </order-total> </totals> 
+
+
+<payments> 
+
+<payment> <credit-card> <card-type>VISA</card-type> <card-number>XXXX-XXXX-XXXX-null</card-number> 
+
+<card-holder>ans</card-holder> <expiration-month>3</expiration-month> <expiration-year>2030</expiration-year> <issue-number>4111111111111111</issue-number> </credit-card> <amount>60.68</amount> <processor-id>BASIC_CREDIT</processor-id>
+
+ </payment> 
+
+    </payments> 
+
+<remoteHost>72.255.34.13</remoteHost> </order></root>

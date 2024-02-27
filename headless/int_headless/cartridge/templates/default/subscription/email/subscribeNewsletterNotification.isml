@@ -1,0 +1,21 @@
+<iscontent type="text/html" charset="UTF-8" />
+<html>
+<body>
+    <div style="font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: x-small; color: Black;">
+        <div style="font-size: 20px; font-weight:bold;"><p>${Resource.msg('email.subject.new.subscription','registration',null)}</p></div>
+        <br>
+        <isif condition="${pdict.message}">
+            <div style="font-size: 10px; font-weight:bold;">${pdict.message}</div>
+            <br>
+        </isif>
+        <isif condition="${pdict.sessionID}">
+            <div style="font-size: 10px; font-weight:bold;">${Resource.msg('email.session.id','registration',null)}${pdict.sessionID}</div>
+            <br>
+        </isif>
+        <isif condition="${pdict.timeStamp}">
+            <div style="font-size: 10px; font-weight:bold;">${Resource.msg('email.subscription.time','registration',null)}${pdict.timeStamp}</div>
+            <br>
+        </isif>
+    </div>
+</body>
+</html>

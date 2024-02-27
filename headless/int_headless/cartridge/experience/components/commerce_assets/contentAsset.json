@@ -1,0 +1,27 @@
+{
+    "name": "Content Asset",
+    "description": "This is a component of content assest",
+    "group": "commerce_assets",
+    "attribute_definition_groups": [
+      {
+        "id": "contentAsset",
+        "attribute_definitions": [
+            {
+                "id": "contentAssetId",
+                "name": "Specify the content asset ID",
+                "description": "Provide the content asset ID.",
+                "type": "string",
+                "required": true
+            },
+            {
+                "id": "cssClassName",
+                "name": "Specify the Class Name",
+                "description": "Provide the Class Name on Content Asset Component.",
+                "type": "string",
+                "required": false
+            }
+        ]
+      }
+    ],
+    "region_definitions": []
+  }

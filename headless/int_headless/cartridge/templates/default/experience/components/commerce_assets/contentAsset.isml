@@ -1,0 +1,5 @@
+<isinclude sf-toolkit="off" template="components/modules" />
+
+<div>
+  <iscontentasset aid="${pdict.contentAssetId}" />
+</div>

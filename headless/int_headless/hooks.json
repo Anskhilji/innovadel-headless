@@ -1,0 +1,32 @@
+{
+    "hooks": [
+        {
+            "name": "dw.ocapi.shop.product.modifyGETResponse",
+            "script": "./cartridge/scripts/hooks/product/product.js"
+        },
+        {
+            "name": "dw.ocapi.shop.product_search.modifyGETResponse",
+            "script": "./cartridge/scripts/hooks/productSearch/productSearch.js"
+        },
+        {
+            "name": "dw.ocapi.shop.basket.payment_instrument.afterPOST",
+            "script": "./cartridge/scripts/hooks/paymentInstruments.js"
+        },
+        {
+            "name": "dw.ocapi.shop.order.modifyGETResponse",
+            "script": "./cartridge/scripts/hooks/order/order.js"
+        },
+        {
+            "name": "dw.ocapi.shop.customer.afterPOST",
+            "script": "./cartridge/scripts/hooks/account/accountCreated.js"
+        },
+        {
+            "name": "dw.ocapi.shop.customer.afterPATCH",
+            "script": "./cartridge/scripts/hooks/account/accountUpdated.js"
+        },
+        {
+            "name": "app.communication.newsletter.created",
+            "script": "~/cartridge/scripts/communication/newsLetter"
+        }
+    ]
+}

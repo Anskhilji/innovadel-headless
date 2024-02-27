@@ -1,0 +1,53 @@
+name: SalesforceCommerceCloud/plugin_slas/run-tests
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - develop
+    pull_request:
+    schedule:
+        # Run daily at 12am (PST) - cron uses UTC times
+        - cron: '0 8 * * 1-5'
+
+jobs:
+    # Re-usable workflows cannot be run as steps in a job so we create a separate job to run tests workflow
+    run-test:
+        uses: ./.github/workflows/test.yml
+        with:
+            NODE_VERSION: 12.21
+        secrets:
+            BM_HOSTNAME: ${{ secrets.BM_HOSTNAME }}
+            BM_USERNAME: ${{ secrets.BM_USERNAME }}
+            BM_PASSWORD: ${{ secrets.BM_PASSWORD }}
+            BM_CODE_VERSION: ${{ secrets.BM_CODE_VERSION }}
+
+    notify-slack:
+        runs-on: ubuntu-latest
+        needs: [run-test]
+        steps:
+            - name: Send GitHub Action data to Slack workflow (Generated)
+              id: slack-success
+              # Notify slack only for nightly runs
+              if: ${{ needs.run-test.result == 'success' && github.event_name == 'schedule' }}
+              uses: slackapi/slack-github-action@v1.23.0
+              with:
+                  payload: |
+                      {
+                        "message": "All Plugin SLAS tests pass!"
+                      }
+              env:
+                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+            - name: Send GitHub Action data to Slack workflow (Generated)
+              id: slack-failure
+              # Notify slack only for nightly runs
+              # falsy result of a job could be either 'failure' or 'cancelled', hence we check against != 'success'
+              if: ${{ needs.run-test.result != 'success' && github.event_name == 'schedule' }}
+              uses: slackapi/slack-github-action@v1.23.0
+              with:
+                  payload: |
+                      {
+                        "message": "Atleast 1 Plugin SLAS test failed (${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+                      }
+              env:
+                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

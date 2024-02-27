@@ -1,0 +1,21 @@
+name: generate_dwjson
+inputs:
+    BM_HOSTNAME:
+        description: Business Manager Hostname
+        required: true
+    BM_USERNAME:
+        description: Business Manager EMAIL
+        required: true
+    BM_PASSWORD:
+        description: Business Manager WebDAV Token
+        required: true
+    BM_CODE_VERSION:
+        description: Active code version for Plugin SLAS in Business Manager
+        required: true
+
+runs:
+    using: composite
+    steps:
+        - name: Generate dw.json
+          run: echo '{"hostname":"${{inputs.BM_HOSTNAME}}","username":"${{inputs.BM_USERNAME}}","password":"${{inputs.BM_PASSWORD}}","version":"${{inputs.BM_CODE_VERSION}}"}' | jq > dw.json
+          shell: bash
